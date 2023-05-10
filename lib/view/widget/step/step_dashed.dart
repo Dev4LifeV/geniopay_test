@@ -107,7 +107,7 @@ class _ActiveStepDashed extends StatelessWidget {
           foregroundPainter: DashedLineVerticalPainter(),
           child: Container(
             margin: const EdgeInsets.only(left: 34.5),
-            width: 300,
+            width: 285,
             child: Text(content),
           ),
         ),
@@ -173,7 +173,7 @@ class _InactiveStepDashed extends StatelessWidget {
           foregroundPainter: DashedLineVerticalPainter(),
           child: Container(
             margin: const EdgeInsets.only(left: 34),
-            width: 300,
+            width: 285,
             child: Text(content),
           ),
         ),
