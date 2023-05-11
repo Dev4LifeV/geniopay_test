@@ -14,12 +14,10 @@ class NegativeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => TextButton(
         onPressed: onPressed,
+        style: TextButton.styleFrom(
+            splashFactory: NoSplash.splashFactory, foregroundColor: context.colors.onSecondary),
         child: Text(
           content.toUpperCase(),
         ),
-    style: TextButton.styleFrom(
-      splashFactory: NoSplash.splashFactory,
-          foregroundColor: context.colors.onSecondary
-    ),
       );
 }
