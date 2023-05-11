@@ -9,10 +9,12 @@ class StepDashed extends StatelessWidget {
     this.isActive = false,
     this.circleColor = Colors.red,
     this.activeColor = Colors.blue,
+    this.isLast = false,
     super.key,
   });
 
   final bool isActive;
+  final bool isLast;
   final String title;
   final String content;
   final Color circleColor;
@@ -23,12 +25,14 @@ class StepDashed extends StatelessWidget {
       ? _ActiveStepDashed(
           title: title,
           content: content,
+          isLast: isLast,
           activeColor: activeColor,
           circleColor: circleColor,
         )
       : _InactiveStepDashed(
           title: title,
           content: content,
+          isLast: isLast,
           circleColor: circleColor,
         );
 }
@@ -39,11 +43,13 @@ class _ActiveStepDashed extends StatelessWidget {
     required this.content,
     this.circleColor = Colors.red,
     this.activeColor = Colors.blue,
+    this.isLast = false,
     Key? key,
   }) : super(key: key);
 
   final Color circleColor;
   final Color activeColor;
+  final bool isLast;
   final String title;
   final String content;
 
@@ -104,7 +110,7 @@ class _ActiveStepDashed extends StatelessWidget {
   Widget _contentText() => Container(
         margin: const EdgeInsets.only(left: 35),
         child: CustomPaint(
-          foregroundPainter: DashedLineVerticalPainter(),
+          foregroundPainter: !isLast ? DashedLineVerticalPainter() : null,
           child: Container(
             margin: const EdgeInsets.only(left: 34.5),
             width: 285,
@@ -119,11 +125,13 @@ class _InactiveStepDashed extends StatelessWidget {
     required this.title,
     required this.content,
     this.circleColor = Colors.red,
+    this.isLast = false,
     Key? key,
   }) : super(key: key);
 
   final String title;
   final String content;
+  final bool isLast;
   final Color circleColor;
 
   @override
@@ -170,7 +178,7 @@ class _InactiveStepDashed extends StatelessWidget {
   Widget _contentText() => Container(
         margin: const EdgeInsets.only(left: 35),
         child: CustomPaint(
-          foregroundPainter: DashedLineVerticalPainter(),
+          foregroundPainter: !isLast ? DashedLineVerticalPainter() : null,
           child: Container(
             margin: const EdgeInsets.only(left: 34),
             width: 285,
