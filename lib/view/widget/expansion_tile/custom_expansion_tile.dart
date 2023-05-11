@@ -197,7 +197,12 @@ class _CustomExpansionTileState extends State<CustomExpansionTile> with SingleTi
               onTap: _handleTap,
               contentPadding: widget.tilePadding ?? expansionTileTheme.tilePadding,
               leading: widget.leading ?? _buildLeadingIcon(context),
-              title: widget.centerTitle ? Center(child: widget.title) : widget.title,
+              title: widget.centerTitle
+                  ? Center(child: widget.title)
+                  : Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: widget.title,
+                    ),
               subtitle: widget.subtitle,
               trailing: widget.hasIcon ? widget.trailing ?? _buildTrailingIcon(context) : null,
             ),
