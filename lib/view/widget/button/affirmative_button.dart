@@ -21,7 +21,8 @@ class AffirmativeButton extends StatelessWidget {
         ),
         child: Text(
           content.toUpperCase(),
-          style: context.fonts.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+          style:
+              context.fonts.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
         ),
       );
 }
