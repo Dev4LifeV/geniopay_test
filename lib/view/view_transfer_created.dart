@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geniopay_test/app.dart';
 import 'package:geniopay_test/core/config/extension/ext_device_size.dart';
 import 'package:geniopay_test/core/config/extension/ext_style.dart';
 import 'package:geniopay_test/view/widget/button/affirmative_button.dart';
@@ -87,7 +88,9 @@ class ViewTransferCreated extends StatelessWidget {
                       width: context.deviceWidth,
                       child: AffirmativeButton(
                         onPressed: () => showModalBottomSheet(
-                            context: context, builder: (context) => ModalSheet(), backgroundColor: Colors.transparent),
+                            context: context,
+                            builder: (context) => const ModalSheet(),
+                            backgroundColor: Colors.transparent),
                         content: "VIEW YOUR TRANSFER STATUS",
                       ),
                     ),
@@ -154,7 +157,7 @@ class ViewTransferCreated extends StatelessWidget {
 
   List<IconButton> _headIcons() => [
         IconButton(
-          onPressed: () {},
+          onPressed: () => Navigator.pop(App.context!),
           icon: const Icon(Icons.close),
         ),
         IconButton(
