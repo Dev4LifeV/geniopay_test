@@ -88,10 +88,11 @@ class ViewTransferCreated extends StatelessWidget {
                       width: context.deviceWidth,
                       child: AffirmativeButton(
                         onPressed: () => showModalBottomSheet(
-                            context: context,
-                            builder: (context) => const ModalSheet(),
-                            backgroundColor: Colors.transparent),
-                        content: "VIEW YOUR TRANSFER STATUS",
+                          backgroundColor: Colors.transparent,
+                          context: context,
+                          builder: (context) => const ModalSheet(),
+                        ),
+                        content: "VIEW YOUR TRANSFER STATUS\n(modal sheet)",
                       ),
                     ),
                   ],
@@ -99,27 +100,8 @@ class ViewTransferCreated extends StatelessWidget {
               ),
             ],
           ),
-          CustomExpansionTile(
-            title: const Text("Refer a friend and get 100.00 PLN"),
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                color: Colors.white,
-                child: Column(
-                  children: [
-                    _stepper(context),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(30, 25, 30, 0),
-                      width: context.deviceWidth,
-                      child: AffirmativeButton(
-                        onPressed: () {},
-                        content: "VIEW YOUR TRANSFER STATUS",
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+          const CustomExpansionTile(
+            title: Text("Refer a friend and get 100.00 PLN"),
           ),
           const CustomExpansionTile(
             title: Text("Allow GHS exchange rate notifications"),
