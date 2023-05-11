@@ -24,14 +24,16 @@ class ReferralCard extends StatelessWidget {
                 .asMap()
                 .entries
                 .map(
-                  (entry) => _stepRow(context, (entry.key + 1).toString(), entry.key),
+                  (entry) =>
+                      _stepRow(context, (entry.key + 1).toString(), entry.key),
                 )
                 .toList(),
           ),
         ),
       );
 
-  Widget _stepRow(BuildContext context, String stepNumber, int index) => Container(
+  Widget _stepRow(BuildContext context, String stepNumber, int index) =>
+      Container(
         margin: const EdgeInsets.only(bottom: 20),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -43,7 +45,8 @@ class ReferralCard extends StatelessWidget {
             Expanded(
               child: Text(
                 _instructions[index],
-                style: context.fonts.bodySmall?.copyWith(fontWeight: FontWeight.bold),
+                style: context.fonts.bodySmall
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
             ),
           ],
@@ -62,7 +65,8 @@ class ReferralCard extends StatelessWidget {
         child: Center(
           child: Text(
             stepNumber,
-            style: context.fonts.bodyMedium?.copyWith(color: context.colors.background),
+            style: context.fonts.bodyMedium
+                ?.copyWith(color: context.colors.background),
           ),
         ),
       );
