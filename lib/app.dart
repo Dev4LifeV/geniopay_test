@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:geniopay_test/view/view_referral.dart';
-import 'package:geniopay_test/view/view_transfer_created.dart';
 import 'package:geniopay_test/view/style/color.dart';
 import 'package:geniopay_test/view/style/font.dart';
 
 class App extends MaterialApp {
-  const App({super.key});
+  const App({required this.page, super.key});
 
-  @override
-  Widget get home => const ViewReferral();
+  final Widget page;
+  static BuildContext? context;
 
   @override
   ThemeData get theme => ThemeData(
@@ -17,4 +15,7 @@ class App extends MaterialApp {
         textTheme: AppFont.appFonts,
         splashFactory: NoSplash.splashFactory,
       );
+
+  @override
+  Widget get home => page;
 }
