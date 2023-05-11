@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geniopay_test/app.dart';
 import 'package:geniopay_test/core/config/extension/ext_device_size.dart';
 import 'package:geniopay_test/core/config/extension/ext_style.dart';
 import 'package:geniopay_test/view/widget/button/affirmative_button.dart';
@@ -21,26 +22,7 @@ class ViewReferral extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(horizontal: 35),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _head(),
-                      _title(context),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      _cards(),
-                      _titleCardReferral(context),
-                      const ReferralCard(),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      _titleCardInviteFriends(context),
-                      const InviteFriendCard(),
-                      _disclaimer(context),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      _sendALinkButton(context),
-                    ],
+                    children: _body(context),
                   ),
                 ),
               )
@@ -49,12 +31,33 @@ class ViewReferral extends StatelessWidget {
         ),
       );
 
+  List<Widget> _body(BuildContext context) => [
+        _head(),
+        _title(context),
+        const SizedBox(
+          height: 20,
+        ),
+        _cards(),
+        _titleCardReferral(context),
+        const ReferralCard(),
+        const SizedBox(
+          height: 10,
+        ),
+        _titleCardInviteFriends(context),
+        const InviteFriendCard(),
+        _disclaimer(context),
+        const SizedBox(
+          height: 10,
+        ),
+        _sendALinkButton(context),
+      ];
+
   Widget _head() => Head(
         margin: EdgeInsets.zero,
         alignment: MainAxisAlignment.start,
         icons: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.pop(App.context!),
             icon: const Icon(Icons.arrow_back),
             padding: const EdgeInsets.only(right: 35),
           ),
