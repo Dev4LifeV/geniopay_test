@@ -7,6 +7,11 @@ class AppFont {
   static final TextStyle _bodyMedium = _newFont(fontSize: 14);
   static final TextStyle _bodySmall = _newFont(fontSize: 13);
 
+  static final TextStyle _titleLarge = _newFont(
+    fontSize: 32,
+    fontWeight: FontWeight.w700,
+  );
+
   static TextStyle _newFont({
     TextStyle? textStyle,
     Color? color,
@@ -54,5 +59,6 @@ class AppFont {
         bodyLarge: _bodyLarge,
         bodyMedium: _bodyMedium,
         bodySmall: _bodySmall,
+        titleLarge: _titleLarge,
       );
 }
