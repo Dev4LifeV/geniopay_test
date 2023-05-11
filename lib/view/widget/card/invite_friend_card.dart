@@ -31,7 +31,8 @@ class InviteFriendCard extends StatelessWidget {
                     width: 15,
                   ),
                   _inviteButton(context, Icons.person,
-                      backgroundColor: context.colors.primary.withOpacity(0.05)),
+                      backgroundColor:
+                          context.colors.primary.withOpacity(0.05)),
                 ],
               )
             ],
