@@ -85,7 +85,8 @@ class CustomExpansionTile extends StatefulWidget {
   State<CustomExpansionTile> createState() => _CustomExpansionTileState();
 }
 
-class _CustomExpansionTileState extends State<CustomExpansionTile> with SingleTickerProviderStateMixin {
+class _CustomExpansionTileState extends State<CustomExpansionTile>
+    with SingleTickerProviderStateMixin {
   static final Animatable<double> _easeOutTween = CurveTween(curve: Curves.easeOut);
   static final Animatable<double> _easeInTween = CurveTween(curve: Curves.easeIn);
   static final Animatable<double> _halfTween = Tween<double>(begin: 0.0, end: 0.5);
@@ -114,7 +115,8 @@ class _CustomExpansionTileState extends State<CustomExpansionTile> with SingleTi
     _iconColor = _controller.drive(_iconColorTween.chain(_easeInTween));
     _backgroundColor = _controller.drive(_backgroundColorTween.chain(_easeOutTween));
 
-    _isExpanded = PageStorage.maybeOf(context)?.readState(context) as bool? ?? widget.initiallyExpanded;
+    _isExpanded =
+        PageStorage.maybeOf(context)?.readState(context) as bool? ?? widget.initiallyExpanded;
     if (_isExpanded) {
       _controller.value = 1.0;
     }
@@ -185,8 +187,9 @@ class _CustomExpansionTileState extends State<CustomExpansionTile> with SingleTi
     return Container(
       clipBehavior: clipBehavior,
       decoration: ShapeDecoration(
-          color: _backgroundColor.value ?? expansionTileTheme.backgroundColor ?? Colors.transparent,
-          shape: RoundedRectangleBorder()),
+        color: _backgroundColor.value ?? expansionTileTheme.backgroundColor ?? Colors.transparent,
+        shape: const RoundedRectangleBorder(),
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -209,7 +212,9 @@ class _CustomExpansionTileState extends State<CustomExpansionTile> with SingleTi
           ),
           ClipRect(
             child: Align(
-              alignment: widget.expandedAlignment ?? expansionTileTheme.expandedAlignment ?? Alignment.center,
+              alignment: widget.expandedAlignment ??
+                  expansionTileTheme.expandedAlignment ??
+                  Alignment.center,
               heightFactor: _heightFactor.value,
               child: child,
             ),
@@ -238,10 +243,14 @@ class _CustomExpansionTileState extends State<CustomExpansionTile> with SingleTi
             bottom: BorderSide(color: theme.dividerColor),
           );
     _headerColorTween
-      ..begin = widget.collapsedTextColor ?? expansionTileTheme.collapsedTextColor ?? theme.textTheme.titleMedium!.color
+      ..begin = widget.collapsedTextColor ??
+          expansionTileTheme.collapsedTextColor ??
+          theme.textTheme.titleMedium!.color
       ..end = widget.textColor ?? expansionTileTheme.textColor ?? colorScheme.primary;
     _iconColorTween
-      ..begin = widget.collapsedIconColor ?? expansionTileTheme.collapsedIconColor ?? theme.unselectedWidgetColor
+      ..begin = widget.collapsedIconColor ??
+          expansionTileTheme.collapsedIconColor ??
+          theme.unselectedWidgetColor
       ..end = widget.iconColor ?? expansionTileTheme.iconColor ?? colorScheme.primary;
     _backgroundColorTween
       ..begin = widget.collapsedBackgroundColor ?? expansionTileTheme.collapsedBackgroundColor
