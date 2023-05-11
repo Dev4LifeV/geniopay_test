@@ -3,7 +3,7 @@ import 'package:geniopay_test/core/config/extension/ext_device_size.dart';
 import 'package:geniopay_test/core/config/extension/ext_style.dart';
 import 'package:geniopay_test/view/widget/button/affirmative_button.dart';
 import 'package:geniopay_test/view/widget/expansion_tile/custom_expansion_tile.dart';
-import 'package:geniopay_test/view/widget/header/header.dart';
+import 'package:geniopay_test/view/widget/head/head.dart';
 import 'package:geniopay_test/view/widget/modal/modal_sheet.dart';
 import 'package:geniopay_test/view/widget/step/step_dashed.dart';
 import 'package:geniopay_test/view/widget/stepper/vertical_stepper_dashed.dart';
@@ -17,22 +17,23 @@ class ViewTransferCreated extends StatelessWidget {
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                child: Column(
-                  children: [
-                    const Header(),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        _headerTransferSuccess(context),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        _tiles(context),
-                      ],
-                    ),
-                  ],
-                )
-              )
+                  child: Column(
+                children: [
+                  Head(
+                    icons: _headIcons(),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _headerTransferSuccess(context),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      _tiles(context),
+                    ],
+                  ),
+                ],
+              ))
             ],
           ),
         ),
@@ -61,11 +62,10 @@ class ViewTransferCreated extends StatelessWidget {
           circleColor: context.colors.primary,
         ),
         StepDashed(
-          title: "Transfer with recipient",
-          content: "Payment received by collected by or delivered to John Smith",
-          circleColor: context.colors.primary,
-          isLast: true
-        ),
+            title: "Transfer with recipient",
+            content: "Payment received by collected by or delivered to John Smith",
+            circleColor: context.colors.primary,
+            isLast: true),
       ];
 
   Widget _tiles(BuildContext context) => Column(
@@ -86,7 +86,8 @@ class ViewTransferCreated extends StatelessWidget {
                       margin: const EdgeInsets.fromLTRB(30, 25, 30, 0),
                       width: context.deviceWidth,
                       child: AffirmativeButton(
-                        onPressed: () => showModalBottomSheet(context: context, builder: (context) => ModalSheet(), backgroundColor: Colors.transparent),
+                        onPressed: () => showModalBottomSheet(
+                            context: context, builder: (context) => ModalSheet(), backgroundColor: Colors.transparent),
                         content: "VIEW YOUR TRANSFER STATUS",
                       ),
                     ),
@@ -133,21 +134,32 @@ class ViewTransferCreated extends StatelessWidget {
       );
 
   Widget _headerTransferSuccess(BuildContext context) => Column(
-    children: [
-      _headerImage(),
-      Container(
-        margin: const EdgeInsets.only(bottom: 10),
-        width: 285,
-        child: Text(
-          "Your transfer has been created!",
-          style: context.fonts.bodyLarge?.copyWith(color: context.colors.primary),
-          textAlign: TextAlign.center,
+        children: [
+          _headerImage(),
+          Container(
+            margin: const EdgeInsets.only(bottom: 10),
+            width: 285,
+            child: Text(
+              "Your transfer has been created!",
+              style: context.fonts.bodyLarge?.copyWith(color: context.colors.primary),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Text(
+            "John Smith will receive 100.00 GHS",
+            style: context.fonts.bodyMedium,
+          ),
+        ],
+      );
+
+  List<IconButton> _headIcons() => [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.close),
         ),
-      ),
-      Text(
-        "John Smith will receive 100.00 GHS",
-        style: context.fonts.bodyMedium,
-      ),
-    ],
-  );
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.help_outline),
+        )
+      ];
 }
