@@ -28,11 +28,12 @@ class ModalSheet extends StatelessWidget {
                 textAlign: TextAlign.start,
                 style: context.fonts.bodyLarge,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              const Text("Get daily notifications sent to your phone with the latest exchange rates from GenioPay."),
-              SizedBox(
+              const Text(
+                  "Get daily notifications sent to your phone with the latest exchange rates from GenioPay."),
+              const SizedBox(
                 height: 30,
               ),
               SizedBox(
