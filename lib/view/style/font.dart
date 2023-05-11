@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'dart:ui';
 
 class AppFont {
-  static final TextStyle _bodyLarge = _newFont(fontSize: 20, fontWeight: FontWeight.w700);
+  static final TextStyle _bodyLarge =
+      _newFont(fontSize: 20, fontWeight: FontWeight.w700);
   static final TextStyle _bodyMedium = _newFont(fontSize: 14);
   static final TextStyle _bodySmall = _newFont(fontSize: 13);
 
